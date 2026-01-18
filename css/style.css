@@ -1,4 +1,4 @@
-@import url(/fonts/fonts.css);
+@import url(fonts/fonts.css);
 
 /* === ПЕРЕМЕННЫЕ === */
 :root {
@@ -74,7 +74,9 @@ label {
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+  transition:
+    opacity 0.8s var(--transition),
+    transform 0.8s var(--transition);
 }
 .fade-in.appear {
   opacity: 1;
@@ -169,7 +171,7 @@ label {
 }
 .header__photo {
   height: 70vh;
-  background-image: url("/images/Молодые.jpg");
+  background-image: url("images/Молодые.jpg");
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
@@ -286,7 +288,9 @@ h2::after {
   margin: 60px 0;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s, transform 0.6s;
+  transition:
+    opacity 0.6s,
+    transform 0.6s;
 }
 .timeline__event.visible {
   opacity: 1;
@@ -342,7 +346,7 @@ h2::after {
   height: 220px;
   margin-top: 1.2rem;
   border-radius: 12px;
-  background-image: url(/images/les.png);
+  background-image: url("images/les.png");
   background-position: center;
   filter: brightness(80%);
 }
@@ -381,7 +385,7 @@ h2::after {
 .details__image {
   position: relative;
   height: 200px;
-  background-image: url("/images/details.jpeg");
+  background-image: url("images/details.jpeg");
   background-size: cover;
   background-position: center;
   border-radius: 16px;
