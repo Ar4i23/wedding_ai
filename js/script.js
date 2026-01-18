@@ -33,7 +33,7 @@ function observeSections() {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.1 },
   );
 
   document.querySelectorAll(".fade-in").forEach((section) => {
@@ -114,7 +114,7 @@ document
     const plusOneChecked = this.querySelector('input[name="plusOne"]').checked;
     if (plusOneChecked) {
       const plusOneName = this.querySelector(
-        'input[name="plusOneName"]'
+        'input[name="plusOneName"]',
       )?.value.trim();
       plusOneInfo = plusOneName ? ` (с ${plusOneName})` : " (с гостем)";
     }
@@ -157,7 +157,7 @@ document
           beef: "Говядина",
         };
         const dishes = Array.from(dishEls).map(
-          (el) => dishMap[el.value] || el.value
+          (el) => dishMap[el.value] || el.value,
         );
         dishResult = dishes.join(", ");
       }
@@ -185,7 +185,7 @@ document
   `.trim();
 
     // === НАСТРОЙКИ TELEGRAM ===
-    const TELEGRAM_BOT_TOKEN = "8279240731:AAGgANYUPqMVQg46Yjw8bzbRdzVLW6A9RuA";
+    const TELEGRAM_BOT_TOKEN = "8584764584:AAFrJ9Qz3nr_AgT1bCBatZw8DUmscjzOBCg";
     const TELEGRAM_CHAT_ID = "5234629479";
 
     // === ОТПРАВКА ===
@@ -200,7 +200,7 @@ document
             text: message,
             parse_mode: "HTML",
           }),
-        }
+        },
       );
 
       if (response.ok) {
