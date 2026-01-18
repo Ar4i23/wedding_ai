@@ -385,7 +385,7 @@ h2::after {
 .details__image {
   position: relative;
   height: 200px;
-  background-image: url("..images/details.jpeg");
+  background-image: url("../images/Details.jpg");
   background-size: cover;
   background-position: center;
   border-radius: 16px;
