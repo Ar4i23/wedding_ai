@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Good-Vibes-Pro";
+  src: local("Good Vibes Pro"), url("good-vibes-pro.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Yarin-Bold";
+  src: local("Yarin Bold"), url("yarin-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Forma Djr Cyrillic";
+  src: local("Forma Djr Cyrillic"), local("Forma Djr Cyrillic"),
+    url("forma-djr-cyrillic-text.woff") format("woff");
+}

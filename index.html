@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Приглашение на свадьбу</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Экран с конвертом (на основе LikeSatie) -->
+    <div class="envelope-screen" id="envelopeScreen">
+      <div class="envelope" id="envelope">
+        <div class="envelope__back"></div>
+        <div class="envelope__flap"></div>
+        <button class="envelope__seal" id="openEnvelope">Нажмите</button>
+      </div>
+    </div>
+    <!-- Модальное окно благодарности -->
+    <div class="modal" id="thankYouModal" style="display: none">
+      <div class="modal__overlay" id="modalOverlay"></div>
+      <div class="modal__content">
+        <p class="modal__text" id="modalText"></p>
+        <button class="modal__close" id="modalClose">Закрыть</button>
+      </div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="main-content" id="mainContent">
+      <!-- Шапка -->
+      <header class="header">
+        <div class="header__photo"></div>
+        <h1 class="header__title">Екатерина & Алексей</h1>
+        <p class="header__date">14 февраля 2026</p>
+      </header>
+
+      <!-- Обращение -->
+      <section class="greeting fade-in">
+        <div class="greeting__music-container">
+          <button class="button" id="musicBtn">Включить музыку</button>
+        </div>
+        <h2 class="greeting__title">Дорогие гости!</h2>
+        <p class="greeting__text">
+          Мы очень хотим сделать этот день особенным, поэтому приглашаем Вас
+          разделить <br />с нами торжество, посвящённое дню нашей свадьбы!
+        </p>
+      </section>
+
+      <!-- Даты -->
+      <section class="dates fade-in" id="datesSection">
+        <table class="dates__table">
+          <tr>
+            <td class="dates__day">Пятница</td>
+            <td class="dates__month">Февраля</td>
+            <td class="dates__number">13</td>
+          </tr>
+          <tr class="dates__row--highlight">
+            <td class="dates__day">Суббота</td>
+            <td class="dates__month">Февраля</td>
+            <td class="dates__number">14</td>
+          </tr>
+          <tr>
+            <td class="dates__day">Воскресенье</td>
+            <td class="dates__month">Февраля</td>
+            <td class="dates__number">15</td>
+          </tr>
+        </table>
+      </section>
+
+      <!-- Таймлайн -->
+      <section class="timeline" id="timelineSection">
+        <div class="timeline__track"></div>
+        <div class="timeline__heart" id="heart"></div>
+
+        <div class="timeline__event timeline__event--left" data-phase="welcome">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <h2 class="timeline__phase">Welcome</h2>
+            <p class="timeline__time">15:00</p>
+          </div>
+        </div>
+
+        <div
+          class="timeline__event timeline__event--right"
+          data-phase="ceremony"
+        >
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <h2 class="timeline__phase">Церемония</h2>
+            <p class="timeline__time">16:00</p>
+          </div>
+        </div>
+
+        <div class="timeline__event timeline__event--left" data-phase="banquet">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <h2 class="timeline__phase">Банкет</h2>
+            <p class="timeline__time">18:00</p>
+          </div>
+        </div>
+
+        <div class="timeline__event timeline__event--right" data-phase="cake">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <h2 class="timeline__phase">Торт</h2>
+            <p class="timeline__time">21:00</p>
+          </div>
+        </div>
+
+        <div class="timeline__event timeline__event--left" data-phase="final">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <h2 class="timeline__phase">Финал</h2>
+            <p class="timeline__time">23:00</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Место проведения -->
+      <section class="venue fade-in">
+        <h2 class="venue__title">Место проведения</h2>
+        <p class="venue__subtitle">Ресторан "Les", Воронеж</p>
+        <a
+          href="https://yandex.ru/maps/193/voronezh/?ll=39.182886%2C51.745537&mode=routes&rtext=~51.745545%2C39.182786&rtt=auto&ruri=~ymapsbm1%3A%2F%2Forg%3Foid%3D210499698300&z=17.13"
+          target="_blank"
+          class="button button-link"
+          >Построить маршрут</a
+        >
+        <a href="https://hookah36.ru/" class="venue__link" target="_blank"
+          ><div class="venue__image"></div
+        ></a>
+      </section>
+
+      <!-- Дресс-код -->
+      <section class="dresscode fade-in">
+        <h2 class="dresscode__title">Дресс-код</h2>
+        <p class="dresscode__text">
+          Мы будем очень благодарны, если вы поддержите цветовую палитру нашей
+          свадьбы.
+        </p>
+        <div class="dresscode__colors">
+          <div class="dresscode__color" style="background-color: #8a9b68"></div>
+          <div class="dresscode__color" style="background-color: #d4c8b0"></div>
+          <div class="dresscode__color" style="background-color: #5d6b4a"></div>
+        </div>
+      </section>
+      <!-- Details -->
+      <section class="details">
+        <h2 class="details__title">Details</h2>
+        <p class="details__text">
+          Свои тёплые слова и пожелания приносите в сердцах, а подарки — в
+          конвертах.
+        </p>
+        <p class="details__text">
+          Вместо цветов мы будем счастливы получить бутылку вина, которую вместе
+          разделим однажды вечером.
+        </p>
+        <div class="details__image"></div>
+      </section>
+
+      <!-- Анкета -->
+      <section class="rsvp fade-in" id="rsvpSection">
+        <h2 class="rsvp__title">Анкета</h2>
+        <p class="rsvp__subtitle">
+          Подтвердите своё присутствие до 1 февраля 2026
+        </p>
+
+        <form class="rsvp__form" id="rsvpForm">
+          <div class="rsvp__name-group">
+            <input
+              type="text"
+              class="rsvp__input"
+              placeholder="Имя"
+              name="firstName"
+              required
+            />
+            <input
+              type="text"
+              class="rsvp__input"
+              placeholder="Фамилия"
+              name="lastName"
+              required
+            />
+          </div>
+
+          <!-- Приду с гостем -->
+          <div class="rsvp__plus-one">
+            <label class="rsvp__checkbox-label">
+              <input type="checkbox" name="plusOne" id="plusOneToggle" />
+              Приду с гостем
+            </label>
+            <div
+              class="rsvp__plus-one-fields"
+              id="plusOneFields"
+              style="display: none; margin-top: 12px"
+            >
+              <input
+                type="text"
+                class="rsvp__input"
+                placeholder="Имя спутника"
+                name="plusOneName"
+              />
+            </div>
+          </div>
+
+          <!-- Присутствие -->
+          <div class="rsvp__group">
+            <label class="rsvp__radio-label">
+              <input type="radio" name="attendance" value="yes" />
+              <span class="rsvp__radio-custom"></span>
+              Да
+            </label>
+            <label class="rsvp__radio-label">
+              <input type="radio" name="attendance" value="no" />
+              <span class="rsvp__radio-custom"></span>
+              Нет
+            </label>
+          </div>
+
+          <!-- Напитки -->
+          <h3 class="rsvp__label">Что предпочитаете из напитков?</h3>
+          <div class="rsvp__checkbox-group">
+            <label class="rsvp__drink-label">
+              <input type="checkbox" name="drinks" value="wine" /> Вино
+            </label>
+            <label class="rsvp__drink-label">
+              <input type="checkbox" name="drinks" value="whiskey" /> Виски
+            </label>
+            <label class="rsvp__drink-label">
+              <input type="checkbox" name="drinks" value="champagne" />
+              Шампанское
+            </label>
+            <label class="rsvp__drink-label">
+              <input type="checkbox" name="drinks" value="cocktail" /> Коктейли
+            </label>
+            <label class="rsvp__drink-label">
+              <input type="checkbox" name="drinks" value="non-alco" />
+              Безалкогольные
+            </label>
+          </div>
+
+          <!-- Горячие блюда: два режима -->
+          <div class="rsvp__dishes-single" id="dishesSingle">
+            <h3 class="rsvp__label">Ваши предпочтения по горячим блюдам?</h3>
+            <div class="rsvp__radio-group">
+              <label class="rsvp__radio-label">
+                <input type="radio" name="dish" value="fish" />
+                <span class="rsvp__radio-custom"></span> Рыба
+              </label>
+              <label class="rsvp__radio-label">
+                <input type="radio" name="dish" value="chicken" />
+                <span class="rsvp__radio-custom"></span> Курица
+              </label>
+              <label class="rsvp__radio-label">
+                <input type="radio" name="dish" value="vegan" />
+                <span class="rsvp__radio-custom"></span> Вегетарианское
+              </label>
+              <label class="rsvp__radio-label">
+                <input type="radio" name="dish" value="beef" />
+                <span class="rsvp__radio-custom"></span> Говядина
+              </label>
+            </div>
+          </div>
+
+          <div
+            class="rsvp__dishes-double"
+            id="dishesDouble"
+            style="display: none"
+          >
+            <h3 class="rsvp__label">
+              Выберите блюда для вас и вашего спутника (можно выбрать 1 или 2):
+            </h3>
+            <div class="rsvp__checkbox-group">
+              <label class="rsvp__drink-label">
+                <input type="checkbox" name="dishDouble" value="fish" /> Рыба
+              </label>
+              <label class="rsvp__drink-label">
+                <input type="checkbox" name="dishDouble" value="chicken" />
+                Курица
+              </label>
+              <label class="rsvp__drink-label">
+                <input type="checkbox" name="dishDouble" value="vegan" />
+                Вегетарианское
+              </label>
+              <label class="rsvp__drink-label">
+                <input type="checkbox" name="dishDouble" value="beef" />
+                Говядина
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="button button-big">Отправить</button>
+        </form>
+      </section>
+    </div>
+
+    <!-- Аудио -->
+    <audio id="weddingMusic" preload="none">
+      <source src="/music/Leningrad_-_Svadba_80110699.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
