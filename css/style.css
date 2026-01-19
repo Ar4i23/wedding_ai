@@ -580,4 +580,10 @@ input[type="radio"]:checked + .rsvp__radio-custom::after {
   .details__text--bottom {
     bottom: 30%;
   }
+  .dresscode__colors {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    justify-content: space-evenly;
+    justify-items: center;
+  }
 }
