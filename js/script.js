@@ -111,13 +111,18 @@ document
       double.style.display = "none";
     }
   });
+function toggleLoader() {
+  // Показываем лоадер
+  const loader = document.getElementById("formLoader");
+  loader.classList.toggle("rsvp__loader");
+}
 
 /// === ОТПРАВКА В TELEGRAM ===
 document
   .getElementById("rsvpForm")
   .addEventListener("submit", async function (e) {
     e.preventDefault();
-
+    toggleLoader();
     // --- Сбор данных (без изменений) ---
     const firstName =
       this.querySelector('input[name="firstName"]')?.value.trim() || "";
@@ -199,8 +204,8 @@ document
   `.trim();
 
     // === НАСТРОЙКИ TELEGRAM ===
-    const TELEGRAM_BOT_TOKEN = "8584764584:AAFrJ9Qz3nr_AgT1bCBatZw8DUmscjzOBCg";
-    const TELEGRAM_CHAT_ID = "5234629479";
+    const TELEGRAM_BOT_TOKEN = "8264296778:AAGAhlCe2z0bvaD7TropVBMq8TPTRdBL0DU";
+    const TELEGRAM_CHAT_ID = "936364295";
 
     // === ОТПРАВКА ===
     try {
@@ -220,6 +225,7 @@ document
       if (response.ok) {
         // УСПЕХ → показываем попап
         showThankYouModal(firstName, attendance === "Да");
+        toggleLoader();
       } else {
         alert("Ошибка отправки. Попробуйте позже.");
         console.error("Telegram error:", await response.text());

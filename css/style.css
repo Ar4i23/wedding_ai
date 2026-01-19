@@ -427,6 +427,14 @@ h2::after {
   text-align: center;
   padding: 10px;
 }
+.hidden {
+  display: none;
+}
+.rsvp__loader {
+  display: flex;
+  justify-content: center;
+}
+
 .rsvp__input {
   width: 100%;
   padding: 0.8rem;
@@ -480,6 +488,79 @@ input[type="radio"]:checked + .rsvp__radio-custom::after {
   background: var(--olive);
   border-radius: 50%;
 }
+/* === LOADER (сердечко) === */
+.lds-heart,
+.lds-heart div,
+.lds-heart div:after,
+.lds-heart div:before {
+  box-sizing: border-box;
+}
+
+.lds-heart {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transform: rotate(45deg);
+  transform-origin: 40px 40px;
+  margin: 0 auto; /* Центрирует внутри родителя */
+}
+
+.lds-heart div {
+  top: 28px;
+  left: 28px;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: var(--olive-light);
+  animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.rsvp__loader {
+  display: flex;
+  justify-content: center;
+}
+
+.lds-heart div:after,
+.lds-heart div:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: var(--olive-light);
+}
+
+.lds-heart div:before {
+  left: -24px;
+  border-radius: 50% 0 0 50%;
+}
+
+.lds-heart div:after {
+  top: -24px;
+  border-radius: 50% 50% 0 0;
+}
+
+@keyframes lds-heart {
+  0% {
+    transform: scale(0.95);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+
 /* МОДАЛЬНОЕ ОКНО  */
 .modal {
   position: fixed;
@@ -515,17 +596,6 @@ input[type="radio"]:checked + .rsvp__radio-custom::after {
   animation: modalFadeIn 0.4s ease-out;
 }
 
-@keyframes modalFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 .modal__text {
   font-size: 1.4rem;
   line-height: 1.6;
@@ -546,6 +616,16 @@ input[type="radio"]:checked + .rsvp__radio-custom::after {
 
 .modal__close:hover {
   background: #7a8a5a;
+}
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* АДАПТИВНОСТЬ */
