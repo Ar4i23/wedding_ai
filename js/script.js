@@ -7,7 +7,12 @@ function openEnvelope() {
 
   // Скрываем кнопку-печать
   document.getElementById("openEnvelope").style.display = "none";
-
+  // Запускаем музыку
+  const music = document.getElementById("weddingMusic");
+  music.play().catch((e) => {
+    console.log("Автовоспроизведение заблокировано:", e);
+    // Можно показать кнопку "Включить музыку", если не сработало
+  });
   setTimeout(() => {
     document.getElementById("envelopeScreen").style.display = "none";
     document.getElementById("mainContent").classList.add("active");
@@ -42,14 +47,23 @@ function observeSections() {
 }
 
 // Музыка
+
+const musicBtn = document.getElementById("musicBtn");
 const music = document.getElementById("weddingMusic");
-document.getElementById("musicBtn").addEventListener("click", () => {
+
+musicBtn.addEventListener("click", () => {
   if (music.paused) {
-    music.play().catch((e) => console.log("Autoplay blocked"));
-    document.getElementById("musicBtn").textContent = "Пауза";
+    music
+      .play()
+      .then(() => {
+        musicBtn.textContent = "⏸ Пауза";
+      })
+      .catch((e) => {
+        alert("Не удалось воспроизвести музыку.");
+      });
   } else {
     music.pause();
-    document.getElementById("musicBtn").textContent = "Включить музыку";
+    musicBtn.textContent = "🎵 Включить музыку";
   }
 });
 
