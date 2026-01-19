@@ -56,14 +56,14 @@ musicBtn.addEventListener("click", () => {
     music
       .play()
       .then(() => {
-        musicBtn.textContent = "⏸ Пауза";
+        musicBtn.textContent = "Пауза";
       })
       .catch((e) => {
         alert("Не удалось воспроизвести музыку.");
       });
   } else {
     music.pause();
-    musicBtn.textContent = "🎵 Включить музыку";
+    musicBtn.textContent = "Включить музыку";
   }
 });
 
