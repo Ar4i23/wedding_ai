@@ -116,6 +116,7 @@ function toggleLoader() {
   const loader = document.getElementById("formLoader");
   loader.classList.toggle("rsvp__loader");
 }
+const FORM_SUBMITTED_KEY = "wedding_rsvp_submitted";
 
 /// === ОТПРАВКА В TELEGRAM ===
 document
@@ -123,6 +124,24 @@ document
   .addEventListener("submit", async function (e) {
     e.preventDefault();
     toggleLoader();
+    // Проверка на повторную отправку
+    if (localStorage.getItem(FORM_SUBMITTED_KEY)) {
+      showModalWhoHaveAlreadyBeen();
+      toggleLoader();
+
+      const form = this;
+      form.reset();
+      document.getElementById("plusOneFields").style.display = "none";
+      document.getElementById("dishesSingle").style.display = "block";
+      document.getElementById("dishesDouble").style.display = "none";
+      return;
+    }
+
+    const form = this;
+    const submitBtn = form.querySelector(".button-big");
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Отправка...";
     // --- Сбор данных (без изменений) ---
     const firstName =
       this.querySelector('input[name="firstName"]')?.value.trim() || "";
@@ -223,6 +242,13 @@ document
       );
 
       if (response.ok) {
+        // Успешно → сохраняем флаг
+        localStorage.setItem(FORM_SUBMITTED_KEY, "true");
+        form.reset();
+        // Очищаем форму
+        document.getElementById("plusOneFields").style.display = "none";
+        document.getElementById("dishesSingle").style.display = "block";
+        document.getElementById("dishesDouble").style.display = "none";
         // УСПЕХ → показываем попап
         showThankYouModal(firstName, attendance === "Да");
         toggleLoader();
@@ -233,6 +259,9 @@ document
     } catch (err) {
       alert("Не удалось отправить данные. Проверьте интернет.");
       console.error("Fetch error:", err);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Отправить";
     }
   });
 
@@ -253,6 +282,15 @@ function showThankYouModal(firstName, isAttending) {
       Нам будет вас не хватать, но мы обязательно найдём повод снова собраться вместе!
     `;
   }
+
+  modal.style.display = "flex";
+}
+//  === ПОПАП Для того кто уже отправлял заявку ===
+function showModalWhoHaveAlreadyBeen() {
+  const modal = document.getElementById("thankYouModal");
+  const modalText = document.getElementById("modalText");
+
+  modalText.innerHTML = "Вы уже подтвердили участие. Спасибо! ❤️";
 
   modal.style.display = "flex";
 }
